@@ -15,11 +15,11 @@ namespace XabeFFmpegMacTest
             //
             // set FFmpegDir 
             //
-            bool isMac = System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(OSPlatform.OSX);
+            bool isLinux = System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(OSPlatform.Linux);
 
             var root = Path.Combine(Path.GetDirectoryName(Directory.GetCurrentDirectory()), "XabeFFmpegMacTest"); 
 
-            Xabe.FFmpeg.FFbase.FFmpegDir = Path.Combine(root, "ffmpeg", (isMac ? "mac64" : "win64"));
+            Xabe.FFmpeg.FFbase.FFmpegDir = Path.Combine(root, "ffmpeg", (isLinux ? "linux64" : "win64"));
 
             var exist = Directory.Exists(Xabe.FFmpeg.FFbase.FFmpegDir);
             Console.WriteLine(exist + "-" + Xabe.FFmpeg.FFbase.FFmpegDir);
